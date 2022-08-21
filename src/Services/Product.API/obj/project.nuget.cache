@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "6a6AflqnnErlRdfCFcfRxkkw0DTF81rwIfjVqsW1wbu1I62JZZ3i8nKTHZdp8v5kx+XjnFJZjCTb5Zpj3vZGbw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\Services\\Product.API\\Product.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sangn\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
