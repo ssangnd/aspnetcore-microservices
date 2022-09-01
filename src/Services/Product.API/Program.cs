@@ -1,22 +1,13 @@
-﻿using Serilog;
+﻿using Common.Logging;
+using Serilog;
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()//LoggerConfiguration
-    .CreateBootstrapLogger();//ReloadableLogger
+var builder = WebApplication.CreateBuilder(args); 
+builder.Host.UseSerilog(Serilogger.Configure); 
 
 Log.Information("Starting Product API up");
 
 try
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    builder.Host.UseSerilog((ctx, lc)=>lc
-        .WriteTo.Console(
-          outputTemplate:
-        "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-        .Enrich.FromLogContext()
-        .ReadFrom.Configuration(ctx.Configuration));
-
     // Add services to the container.
 
     builder.Services.AddControllers();
