@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PrG/wYxnmHq4qYEMthNYVry4wKwGtCFayXgQ8ya9h0HYpFYQO6Wi+GX2Jb0gusapaeLjx1/dZi4WBgaSwNhJ3w==",
+  "dgSpecHash": "zLM6X5B0Ktn6L3sZ/0cErJrcib1w/iSnQX2lEBscpF4vfHfT/EZJOi1OEV7ffdiRxzJ6X5jQ3UNKQVVMEyv59A==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\Services\\Product.API\\Product.API.csproj",
   "expectedPackageFiles": [
