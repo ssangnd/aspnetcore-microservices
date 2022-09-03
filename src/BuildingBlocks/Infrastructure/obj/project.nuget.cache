@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/Ls2T4nqS4hjC3KMuLJm3BibXiCyvvwmOO/RXEkt0R/sEAa3ehYYK9+qZLZXovkhftuqe04hyLN/eDHkdUz4DA==",
+  "dgSpecHash": "RE9QT4NuNdwxCxEBzNVffJM8Z0Xtv+Uo5Drzv6I2iO3CnyziJ7C0D89WxQYgGGJSr/gUzzCBRe4f5bsjO2TMYw==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\BuildingBlocks\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sangn\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.6\\microsoft.entityframeworkcore.analyzers.6.0.6.nupkg.sha512",
