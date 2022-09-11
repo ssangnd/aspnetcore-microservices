@@ -38,16 +38,22 @@ try
     app.MapGet("/", () => "Welcome to Customer API!");
 
     app.MapCustomersAPI();
-   
+
 
     // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
+    //if (app.Environment.IsDevelopment())
+    //{
+    //    app.UseSwagger();
+    //    app.UseSwaggerUI();
+    //}
 
-    app.UseHttpsRedirection();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger Customer Minimal API v1");
+    });
+
+    //app.UseHttpsRedirection();//production
 
     app.UseAuthorization();
 
