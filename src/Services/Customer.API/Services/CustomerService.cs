@@ -13,7 +13,7 @@ namespace Product.API.Services
         public async Task<IResult> GetCustomerByUsernameAsync(string username) 
             => Results.Ok(await _repository.GetCustomerUserNameAsync(username));
 
-        public async Task<IResult> GetCustomerAsync() => Results.Ok(await _repository.GetCustomers());
+        //public async Task<IResult> GetCustomerAsync() => Results.Ok(await _repository.GetCustomers());
         
     }
 }

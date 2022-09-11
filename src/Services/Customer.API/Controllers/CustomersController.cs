@@ -8,8 +8,8 @@ namespace Customer.API.Controllers
     {
         public static void MapCustomersAPI(this WebApplication app)
         {
-            app.MapGet("/api/customers", async ( ICustomerService customerService)
-                => await customerService.GetCustomerAsync());
+            //app.MapGet("/api/customers", async ( ICustomerService customerService)
+            //    => await customerService.GetCustomerAsync());
             //app.MapGet("/api/customers/{username}", async(string username, ICustomerService customerService)
             //    => await customerService.GetCustomerByUsernameAsync(username));
 
@@ -21,20 +21,20 @@ namespace Customer.API.Controllers
                 return result != null ? result : Results.NotFound();
             });
 
-            app.MapPost("/api/customers", async (Customer.API.Entities.Customer customer, ICustomerRepository customerRepository) =>
-            {
-                customerRepository.CreateAsync(customer);
-                customerRepository.SaveChangesAsync();
-            });
+            //app.MapPost("/api/customers", async (Customer.API.Entities.Customer customer, ICustomerRepository customerRepository) =>
+            //{
+            //    customerRepository.CreateAsync(customer);
+            //    customerRepository.SaveChangesAsync();
+            //});
 
-            app.MapDelete("/api/customers/{id}", async (int id, ICustomerRepository customerRepository) =>
-            {
-                var customer = await customerRepository.FindByCondition(x => x.Id.Equals(id)).SingleOrDefaultAsync();
-                if (customer == null) return Results.NotFound();
-                await customerRepository.DeleteAsync(customer);
-                await customerRepository.SaveChangesAsync();
-                return Results.NoContent();
-            });
+            //app.MapDelete("/api/customers/{id}", async (int id, ICustomerRepository customerRepository) =>
+            //{
+            //    var customer = await customerRepository.FindByCondition(x => x.Id.Equals(id)).SingleOrDefaultAsync();
+            //    if (customer == null) return Results.NotFound();
+            //    await customerRepository.DeleteAsync(customer);
+            //    await customerRepository.SaveChangesAsync();
+            //    return Results.NoContent();
+            //});
 
             //app.MapPut("/api/customers/{id}", async () =>
             //{
