@@ -6,7 +6,7 @@ using ILogger = Serilog.ILogger;
 
 namespace Basket.API.Repositories
 {
-    public class BasketRepository : IBasketRepositor
+    public class BasketRepository : IBasketRepository
     {
         private readonly IDistributedCache _redisCacheService;
         private readonly ISerializeService _serializeService;
@@ -17,11 +17,13 @@ namespace Basket.API.Repositories
             _serializeService = serializeService;
             _logger = logger;
         }
-        public async Task<bool> DeleteBasketFromUserName(string userName)
+        public async Task<bool> DeleteBasketFromUserName(string username)
         {
+            _logger.Information($"BEGIN: DeleteBasketFromUserName {username}");
             try
             {
-                await _redisCacheService.RemoveAsync(userName);
+                await _redisCacheService.RemoveAsync(username);
+                _logger.Information($"END: DeleteBasketFromUserName {username}");
                 return true;
             }
             catch(Exception e)
@@ -29,17 +31,21 @@ namespace Basket.API.Repositories
                 _logger.Error("DeleteBasketFromUserName: "+e.Message);
                 throw;
             }
+            
         }
 
-        public async Task<Cart?> GetBasketByUserName(string userName)
+        public async Task<Cart?> GetBasketByUserName(string username)
         {
-            var basket = await _redisCacheService.GetStringAsync(userName);
+            _logger.Information($"BEGIN: GetBasketByUserName {username}");
+            var basket = await _redisCacheService.GetStringAsync(username);
+            _logger.Information($"END: GetBasketByUserName {username}");
             return string.IsNullOrEmpty(basket) ? null :
                 _serializeService.Deserialize<Cart>(basket);
         }
 
         public async Task<Cart> UpdateBasket(Cart cart, DistributedCacheEntryOptions options = null)
         {
+            _logger.Information($"BEGIN: UpdateBasket");
             if (options != null)
             {
                 await _redisCacheService.SetStringAsync(cart.UserName, _serializeService.Serialize(cart), options);
@@ -48,6 +54,7 @@ namespace Basket.API.Repositories
             {
                 await _redisCacheService.SetStringAsync(cart.UserName, _serializeService.Serialize(cart));
             }
+            _logger.Information($"END: UpdateBasket");
             return await GetBasketByUserName(cart.UserName);
         }
     }
