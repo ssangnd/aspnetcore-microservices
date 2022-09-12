@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NwYhK1CDKJpuGJUg8mOcZSiWkVGqv9HPr8otanZPhBDlzKcDpL59glckXxd2oT5nUH4/PczFmq4D0KSxlNHn2w==",
+  "dgSpecHash": "qTD5epLt/2ClJqqFAI8sF9/94r5EVdpWLqj5sk9rBSZL1EV722yeH6qoRXEbJCuXB73Ki+UI5r7NHpS3/4PNXg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\Services\\Customer.API\\Customer.API.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\npgsql\\6.0.4\\npgsql.6.0.4.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.4\\npgsql.entityframeworkcore.postgresql.6.0.4.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
