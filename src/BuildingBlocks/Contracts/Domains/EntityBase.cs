@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.Domains
 {
-    public class EntityBase<TKey>:IEntityBase<TKey>
+    public abstract class EntityBase<TKey>:IEntityBase<TKey>
     {
         public TKey Id { get; set; }
     }
