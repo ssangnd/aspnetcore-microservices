@@ -19,6 +19,12 @@ namespace Ordering.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")
                     ,builder=>builder.MigrationsAssembly(typeof(OrderContext).Assembly.FullName));
             });
+
+
+            var abc= typeof(OrderContext).Assembly.FullName;
+            Console.WriteLine("_________");
+            Console.WriteLine(abc);
+            services.AddScoped<OrderContextSeed>();
             
             return services;
         }

@@ -12,6 +12,7 @@ namespace Ordering.Domain.Entities
     public class Order:EntityAuditBase<long>
     {
         [Required]
+        [Column(TypeName ="nvarchar(150)")]
         public string UserName { get; set; }
         
         [Column(TypeName="decimal(10,2)")]
@@ -22,7 +23,7 @@ namespace Ordering.Domain.Entities
         public string FirstName { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(250)")]
         public string LastName { get; set; }
 
         [Required]
