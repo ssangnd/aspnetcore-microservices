@@ -32,3 +32,4 @@ namespace Shared.DTOs.Configurations
 
         public string OrderBy { get; set; }
     }
+}

@@ -58,3 +58,4 @@ namespace Ordering.Application.Common.Mappings
             }
         }
     }
+}
