@@ -15,13 +15,15 @@ namespace Ordering.API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ISmtpEmailService _emailService;
+        //private readonly ISmtpEmailService _emailService;
         //private readonly IEmailService<MailRequest> _emailService;
 
-        public OrdersController(IMediator mediator, ISmtpEmailService emailService)
+        public OrdersController(IMediator mediator
+            //,ISmtpEmailService emailService
+            )
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _emailService = emailService;
+            //_emailService = emailService;
         }
         private static class RouteNames
         {
@@ -37,17 +39,17 @@ namespace Ordering.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("test-email")]
-        public async Task <IActionResult> TestEmail()
-        {
-            var message = new MailRequest
-            {
-                Body= "<h1>hello</h1>",
-                Subject="Test",
-                ToAddress="nds7220@gmail.com"
-            };
-            await _emailService.SendEmailAsync(message);
-            return Ok();
-        }
+        //[HttpGet("test-email")]
+        //public async Task <IActionResult> TestEmail()
+        //{
+        //    var message = new MailRequest
+        //    {
+        //        Body= "<h1>hello</h1>",
+        //        Subject="Test",
+        //        ToAddress="nds7220@gmail.com"
+        //    };
+        //    await _emailService.SendEmailAsync(message);
+        //    return Ok();
+        //}
     }
 }
