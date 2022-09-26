@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WbDVfrrfUyaVeACG3Q/YyW7TMliF2OBTsoUiz/S2l0ObD7TPFVliVKFTVyG91kL8h7oCbz0TxAM1Ti2rg0Dk1g==",
+  "dgSpecHash": "E523+v1+y0dJ869L4Ybj31e/4uUcqnL2hNFRKzpsbc4q6WQujCbr3yKGaiWQG++jA4H9DpzxSJrfpMIZKHjmxg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\BuildingBlocks\\Contracts\\Contracts.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.6\\microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.6\\microsoft.entityframeworkcore.analyzers.6.0.6.nupkg.sha512",
@@ -17,7 +19,8 @@
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\sangn\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\sangn\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
