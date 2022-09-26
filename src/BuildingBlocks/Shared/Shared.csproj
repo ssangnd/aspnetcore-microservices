@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="DTOs\Configurations\" />
       <Folder Include="DTOs\Customer\" />
-      <Folder Include="SeedWork\" />
     </ItemGroup>
 
 </Project>
