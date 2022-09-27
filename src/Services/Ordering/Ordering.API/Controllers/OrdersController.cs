@@ -1,8 +1,12 @@
-﻿using Contracts.Services;
+﻿using AutoMapper;
+using Contracts.Messages;
+using Contracts.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Ordering.Application.Common.Interfaces;
 using Ordering.Application.Common.Models;
 using Ordering.Application.Features.V1.Queries.GetOrders;
+using Ordering.Domain.Entities;
 using Shared.Services.Email;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
@@ -17,13 +21,25 @@ namespace Ordering.API.Controllers
         private readonly IMediator _mediator;
         //private readonly ISmtpEmailService _emailService;
         //private readonly IEmailService<MailRequest> _emailService;
+        private readonly IMessageProducer _messageProducer;
+
+        private readonly IOrderRepository _repository;
+        private readonly IMapper _mapper;
+
+
 
         public OrdersController(IMediator mediator
             //,ISmtpEmailService emailService
-            )
+            , IMessageProducer messageProducer
+            , IOrderRepository repository
+, IMapper mapper)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             //_emailService = emailService;
+
+            _messageProducer = messageProducer ?? throw new ArgumentNullException(nameof(messageProducer));
+            _repository = repository;
+            _mapper = mapper;
         }
         private static class RouteNames
         {
@@ -51,5 +67,16 @@ namespace Ordering.API.Controllers
         //    await _emailService.SendEmailAsync(message);
         //    return Ok();
         //}
+
+        [HttpPost]
+        public async Task<ActionResult> CreateOrder(OrderDto orderDto)
+        {
+            var order = _mapper.Map<Order>(orderDto);
+            var addedOrder =await _repository.CreateOrder(order);
+            await _repository.SaveChangesAsync();
+            var result = _mapper.Map<OrderDto>(addedOrder);
+            _messageProducer.SendMessage(result);
+            return Ok(result);
+        }
     }
 }
