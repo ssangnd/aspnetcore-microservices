@@ -15,6 +15,8 @@ namespace Ordering.Domain.Entities
         [Required]
         [Column(TypeName ="nvarchar(150)")]
         public string UserName { get; set; }
+
+        public Guid DocumentNo { get; set; } = Guid.NewGuid();
         
         [Column(TypeName="decimal(10,2)")]
         public decimal TotalPrice { get; set; }
@@ -32,12 +34,14 @@ namespace Ordering.Domain.Entities
         [Column(TypeName = "nvarchar(250)")]
         public string EmailAddress { get; set; }
 
-        [Column(TypeName = "nvarchar(250)")]
+        [Column(TypeName = "nvarchar(max)")]
         public string ShippingAddress { get; set; }
 
-        [Column(TypeName = "nvarchar(250)")]
+        [Column(TypeName = "nvarchar(max)")]
         public string InvoiceAddress { get; set; }
 
         public EOrderStatus Status { get; set; }
+
+        //[NotMapped] public string FullName => FirstName + " " + LastName;
     }
 }

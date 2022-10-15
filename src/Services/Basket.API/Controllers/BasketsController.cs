@@ -59,7 +59,7 @@ namespace Basket.API.Controllers
         [Route("[action]")]
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Checkout([FromBody] BasketCheckout basketCheckout)
         {
             var basket = await _repository.GetBasketByUserName(basketCheckout.UserName);
@@ -68,7 +68,7 @@ namespace Basket.API.Controllers
             //publish checkout event to Eventbus Message
             var eventMessage = _mapper.Map<BasketCheckoutEvent>(basketCheckout);
             eventMessage.TotalPrice = basketCheckout.TotalPrice;
-            _publishEndpoint.Publish(eventMessage);
+            await _publishEndpoint.Publish(eventMessage);
             //remove basket
             await _repository.DeleteBasketFromUserName(basketCheckout.UserName);
             return Accepted();

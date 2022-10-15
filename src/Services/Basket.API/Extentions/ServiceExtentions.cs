@@ -1,6 +1,7 @@
 ﻿using Basket.API.Repositories;
 using Basket.API.Repositories.Interfaces;
 using Contracts.Common.Interfaces;
+using EventBus.Messages;
 using EventBus.Messages.IntegrationEvents.Interfaces;
 using Infrastructure.Common;
 using Infrastructure.Extentions;
@@ -12,33 +13,6 @@ namespace Basket.API.Extentions
 {
     public static class ServiceExtentions
     {
-        public static IServiceCollection ConfigureServices(this IServiceCollection services)
-            => services.AddScoped<IBasketRepository, BasketRepository>()
-            .AddTransient<ISerializeService, SerializeService>()
-            ;
-        //public static void ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
-        //{
-        //    var redisConnectionString = configuration.GetSection("CacheSettings:ConnectionString").Value;
-        //    if (string.IsNullOrEmpty(redisConnectionString)) throw new ArgumentNullException("Redis Connection string is not configured.");
-        //    //Redis Configuration
-        //    services.AddStackExchangeRedisCache(options =>
-        //    {
-        //        options.Configuration = redisConnectionString;
-        //    });
-        //}
-
-        public static void ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
-        {
-            var settings = services.GetOptions<CacheSettings>("CacheSettings");
-            if (string.IsNullOrEmpty(settings.ConnectionString)) 
-                throw new ArgumentNullException("Redis Connection string is not configured.");
-            //Redis Configuration
-            services.AddStackExchangeRedisCache(options =>
-            {
-                options.Configuration = settings.ConnectionString;
-            });
-        }
-
 
         internal static IServiceCollection AddConfigurationSettings(this IServiceCollection services, IConfiguration configuration)
         {
@@ -51,6 +25,34 @@ namespace Basket.API.Extentions
             services.AddSingleton(cacheSettings);
             return services;
         }
+
+        public static IServiceCollection ConfigureServices(this IServiceCollection services)
+            => services.AddScoped<IBasketRepository, BasketRepository>()
+            .AddTransient<ISerializeService, SerializeService>()
+            ;
+        public static void ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
+        {
+            var redisConnectionString = configuration.GetSection("CacheSettings:ConnectionString").Value;
+            if (string.IsNullOrEmpty(redisConnectionString)) throw new ArgumentNullException("Redis Connection string is not configured.");
+            //Redis Configuration
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = redisConnectionString;
+            });
+        }
+
+        //public static void ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
+        //{
+        //    var settings = services.GetOptions<CacheSettings>("CacheSettings");
+        //    if (string.IsNullOrEmpty(settings.ConnectionString)) 
+        //        throw new ArgumentNullException("Redis Connection string is not configured.");
+        //    //Redis Configuration
+        //    services.AddStackExchangeRedisCache(options =>
+        //    {
+        //        options.Configuration = settings.ConnectionString;
+        //    });
+        //}
+
         public static void ConfigureMassTransit(this IServiceCollection services)
         {
             var settings = services.GetOptions<EventBusSettings>("EventBusSettings");

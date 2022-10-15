@@ -10,6 +10,5 @@ namespace Basket.API
         {
             CreateMap<BasketCheckout, BasketCheckoutEvent>();
         }
-
     }
 }

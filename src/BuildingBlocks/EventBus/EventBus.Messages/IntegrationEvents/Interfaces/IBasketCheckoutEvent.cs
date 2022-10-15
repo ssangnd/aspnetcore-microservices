@@ -1,13 +1,12 @@
-﻿using EventBus.Messages.IntegrationEvents.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventBus.Messages.IntegrationEvents.Events
+namespace EventBus.Messages.IntegrationEvents.Interfaces
 {
-    public record BasketCheckoutEvent() : IntegrationBaseEvent, IBasketCheckoutEvent
+    public interface IBasketCheckoutEvent:IIntegrationEvent
     {
         public string UserName { get; set; }
         public decimal TotalPrice { get; set; }
