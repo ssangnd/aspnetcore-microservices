@@ -34,5 +34,7 @@ namespace Ordering.Infrastructure.Repositories
             return order;
         }
 
+        public void DeleteOrder(Order order) => DeleteAsync(order);
+
     }
 }

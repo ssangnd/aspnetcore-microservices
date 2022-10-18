@@ -34,7 +34,7 @@ namespace Ordering.Application.Features.V1.Orders
             var orderentity = _mapper.Map<Order>(request);
             var addedorder = await _orderRepository.CreateOrderAsync(orderentity);
             await _orderRepository.SaveChangesAsync();
-            _logger.Information($"order {addedorder.Id} is successfully created.");
+            _logger.Information($"order {addedorder.Id} -Document No:{orderentity.DocumentNo} is successfully created.");
             SendEmailAsync(addedorder, cancellationtoken);
             _logger.Information($"end: {methodname} -username: {request.UserName}");
             return new ApiSuccessResult<long>(addedorder.Id);
