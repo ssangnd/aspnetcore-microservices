@@ -18,7 +18,8 @@ namespace Ordering.Application.Features.V1.Orders
         private readonly IMapper _mapper;
         private readonly ISmtpEmailService _emailService;
         private readonly ILogger _logger;
-        public CreateOrdercommandhandler(IOrderRepository orderrepository, IMapper mapper, SmtpEmailService emailservice, ILogger logger)
+        public CreateOrdercommandhandler(IOrderRepository orderrepository,
+            IMapper mapper, ISmtpEmailService emailservice, ILogger logger)
         {
             _orderRepository = orderrepository ?? throw new ArgumentNullException(nameof(orderrepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));

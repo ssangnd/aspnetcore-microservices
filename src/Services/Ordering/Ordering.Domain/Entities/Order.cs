@@ -42,6 +42,6 @@ namespace Ordering.Domain.Entities
 
         public EOrderStatus Status { get; set; }
 
-        //[NotMapped] public string FullName => FirstName + " " + LastName;
+        
     }
 }

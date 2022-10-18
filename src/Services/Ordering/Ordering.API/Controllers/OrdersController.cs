@@ -24,13 +24,13 @@ namespace Ordering.API.Controllers
             //,ISmtpEmailService emailService
             )
         {
-            //_mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             //_emailService = emailService;
         }
         private static class RouteNames
         {
             public const string GetOrders = nameof(GetOrders);
-            //public const string GetOrdersPagination = nameof(GetOrdersPagination);
+            public const string GetOrdersPagination = nameof(GetOrdersPagination);
             public const string CreateOrder = nameof(CreateOrder);
             public const string UpdateOrder = nameof(UpdateOrder);
             public const string DeleteOrder = nameof(DeleteOrder);
@@ -63,7 +63,7 @@ namespace Ordering.API.Controllers
         [ProducesResponseType(typeof(IEnumerable<OrderDto>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<OrderDto>>> GetOrdersByUserName([Required] string username)
         {
-            var query = new GetOrdersQuery(username);
+            var query = new GetOrdersByUserNameQuery(username);
             var result = await _mediator.Send(query);
             return Ok(result);
         }

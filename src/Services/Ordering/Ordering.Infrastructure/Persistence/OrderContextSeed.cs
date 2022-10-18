@@ -48,7 +48,8 @@ public class OrderContextSeed
         {
             await _context.Orders.AddRangeAsync(
                 new Order{
-                    UserName="customer1", FirstName="customer1", LastName="customer",EmailAddress="customer1@local.com",
+                    DocumentNo = Guid.NewGuid(),
+                    UserName ="customer1", FirstName="customer1", LastName="customer",EmailAddress="customer1@local.com",
                     ShippingAddress="HCM",InvoiceAddress="HCM VN", TotalPrice=250
                 });
         }
