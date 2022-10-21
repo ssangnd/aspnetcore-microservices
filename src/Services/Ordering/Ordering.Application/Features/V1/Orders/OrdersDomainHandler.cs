@@ -43,7 +43,7 @@ namespace Ordering.Application.Features.V1.Orders
                 Body = $"Your order detail. " +
                        $"<p> Order Id: {notification.DocumentNo}</p>" +
                        $"<p> Total: {notification.TotalPrice}</p>",
-                Subject = $"Hello {notification.f}, your order was created"
+                Subject = $"Hello {notification.FullName}, your order was created"
             };
 
             try
