@@ -31,13 +31,16 @@ namespace Ordering.Application.Features.V1.Orders
         public async Task<ApiResult<long>> Handle(CreateOrderCommand request, CancellationToken cancellationtoken)
         {
             _logger.Information($"begin: {methodname} - username: {request.UserName}");
-            var orderentity = _mapper.Map<Order>(request);
-            var addedorder = await _orderRepository.CreateOrderAsync(orderentity);
+            var orderEntity = _mapper.Map<Order>(request);
+            //var addedorder = await _orderRepository.CreateOrderAsync(orderentity);
+            //_orderRepository.Create(orderEntity);
+            _orderRepository.CreateOrder(orderEntity);
+            orderEntity.AddedOrder();
             await _orderRepository.SaveChangesAsync();
-            _logger.Information($"order {addedorder.Id} -Document No:{orderentity.DocumentNo} is successfully created.");
-            SendEmailAsync(addedorder, cancellationtoken);
+            _logger.Information($"order {orderEntity.Id} -Document No:{orderEntity.DocumentNo} is successfully created.");
+            //SendEmailAsync(addedorder, cancellationtoken);
             _logger.Information($"end: {methodname} -username: {request.UserName}");
-            return new ApiSuccessResult<long>(addedorder.Id);
+            return new ApiSuccessResult<long>(orderEntity.Id);
         }
 
         private async Task SendEmailAsync(Order order, CancellationToken cancellationtoken)

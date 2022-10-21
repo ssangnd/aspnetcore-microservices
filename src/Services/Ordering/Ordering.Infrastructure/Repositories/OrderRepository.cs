@@ -28,11 +28,15 @@ namespace Ordering.Infrastructure.Repositories
             await UpdateAsync(order);
             return order;
         }
-        public async Task<Order> CreateOrderAsync(Order order)
-        {
-            await CreateAsync(order);
-            return order;
-        }
+        //public async Task<Order> CreateOrderAsync(Order order)
+        //{
+        //    await CreateAsync(order);
+        //    return order;
+        //}
+
+        public void CreateOrder(Order order) => Create(order);
+            
+        
 
         public void DeleteOrder(Order order) => DeleteAsync(order);
 

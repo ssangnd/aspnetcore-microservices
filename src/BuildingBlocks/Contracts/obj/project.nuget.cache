@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "E523+v1+y0dJ869L4Ybj31e/4uUcqnL2hNFRKzpsbc4q6WQujCbr3yKGaiWQG++jA4H9DpzxSJrfpMIZKHjmxg==",
+  "dgSpecHash": "AULCRkdA4y7INjrK6w+EzrFCvgwSr9TmRqbBlvhqW1e/OsxTAw/kWbzRxQj2NQmnfta9SLEkM4DxWfP8cbhzzg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\BuildingBlocks\\Contracts\\Contracts.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sangn\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",

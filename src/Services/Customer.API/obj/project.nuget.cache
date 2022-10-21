@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "/zSMTmbxSNffBF4aockUeyu8uQ+TieG7RA7EDmXgnTrbUQ/tsZMVzTR42LUBFUfegkHKDZ8Cpwwp39r/heqgPg==",
+  "dgSpecHash": "cG+d2BA68E5lLEZdDulgcC6jI+mJEbbWqdGl2617jwx8sJD/spFpNnb+LPHnNsxASswo+oRH+DFXGN4kDosZVw==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\Services\\Customer.API\\Customer.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sangn\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\mailkit\\3.4.1\\mailkit.3.4.1.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\sangn\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.6\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.6.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sangn\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

@@ -24,8 +24,12 @@ namespace Ordering.Application.Features.V1.Orders
         {
             var orderEntity = await _orderRepository.GetByIdAsync(request.Id);
             if (orderEntity == null) throw new NotFoundException(nameof(Order), request.Id);
-            _orderRepository.DeleteAsync(orderEntity);
-           await _orderRepository.SaveChangesAsync();
+            //_orderRepository.DeleteAsync(orderEntity);
+            _orderRepository.DeleteOrder(orderEntity);
+            //trigger su kien DeletedOrder
+            orderEntity.DeletedOrder();
+            //await _orderRepository.SaveChangesAsync();
+            await _orderRepository.SaveChangesAsync();
             _logger.Information($"Order {orderEntity.Id} was successfully deleted.");
             return Unit.Value;
         }

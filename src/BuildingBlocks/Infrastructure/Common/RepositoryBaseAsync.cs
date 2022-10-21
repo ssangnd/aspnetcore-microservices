@@ -29,11 +29,21 @@ where TContext : DbContext
 
     public Task RollbackTransactionAsync() => _dbContext.Database.RollbackTransactionAsync();
 
+    public void Create(T entity) => _dbContext.Set<T>().Add(entity);
     public async Task<K> CreateAsync(T entity)
     {
         await _dbContext.Set<T>().AddAsync(entity);
+        //QU: if have async SaveChangeAsync()
+        await SaveChangesAsync();
         return entity.Id;
     }
+
+    public IList<K> CreateList(IEnumerable<T> entities)
+    {
+        _dbContext.Set<T>().AddRange(entities);
+        return entities.Select(x => x.Id).ToList();
+    }
+
 
     public async Task<IList<K>> CreateListAsync(IEnumerable<T> entities)
     {
@@ -41,6 +51,15 @@ where TContext : DbContext
         return entities.Select(x => x.Id).ToList();
     }
 
+
+    public void Update(T entity)
+    {
+        if (_dbContext.Entry(entity).State == EntityState.Unchanged) return;
+
+        T exist = _dbContext.Set<T>().Find(entity.Id);
+        _dbContext.Entry(exist).CurrentValues.SetValues(entity);
+
+    }
     public Task UpdateAsync(T entity)
     {
         if (_dbContext.Entry(entity).State == EntityState.Unchanged) return Task.CompletedTask;
@@ -53,12 +72,24 @@ where TContext : DbContext
 
     public Task UpdateListAsync(IEnumerable<T> entities) => _dbContext.Set<T>().AddRangeAsync(entities);
 
+    public void UpdateList(IEnumerable<T> entities) => _dbContext.Set<T>().AddRange(entities);
+
+
+    public void Delete(T entity)
+    {
+        _dbContext.Set<T>().Remove(entity);
+    }
     public Task DeleteAsync(T entity)
     {
         _dbContext.Set<T>().Remove(entity);
         return Task.CompletedTask;
     }
 
+
+    public void DeleteList(IEnumerable<T> entities)
+    {
+        _dbContext.Set<T>().RemoveRange(entities);
+    }
     public Task DeleteListAsync(IEnumerable<T> entities)
     {
         _dbContext.Set<T>().RemoveRange(entities);
@@ -66,4 +97,6 @@ where TContext : DbContext
     }
 
     public Task<int> SaveChangesAsync() => _unitOfWork.CommitAsync();
+
+
 }
