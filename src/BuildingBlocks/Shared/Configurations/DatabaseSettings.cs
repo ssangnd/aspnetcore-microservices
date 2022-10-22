@@ -8,6 +8,8 @@ namespace Shared.Configurations
 {
     public class DatabaseSettings
     {
+        //them dong nay switch giua cac db
+        public string DBProvider { get; set; }
         public string ConnectionString { get; set; }
     }
 }
