@@ -1,10 +1,12 @@
 ﻿using Inventory.Product.API.Entities;
+using Inventory.Product.API.Extensions;
 using MongoDB.Bson.Serialization.Attributes;
 using Shared.Enums.Inventory;
 
 namespace Inventory.Product.API.Entities
 {
     //giao dich xuat kho
+    [BsonCollection("InventoryEntries")]
     public class InventoryEntry : MogoEntity
     {
         public InventoryEntry()
