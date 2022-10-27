@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Infrastructure.Common.Models;
+using Infrastructure.Extentions;
 using Inventory.Product.API.Entities;
 using Inventory.Product.API.Extensions;
 using Inventory.Product.API.Repositories.Abstraction;
@@ -27,7 +29,7 @@ namespace Inventory.Product.API.Services
             return result;
         }
 
-        public async Task<IEnumerable<InventoryEntryDto>> GetAllByItemNoPagingAsync(GetInventoryPagingQuery query)
+        public async Task<PagedList<InventoryEntryDto>> GetAllByItemNoPagingAsync(GetInventoryPagingQuery query)
         {
             var filterSearchTerm = Builders<InventoryEntry>.Filter.Empty;
             var filterItemNo = Builders<InventoryEntry>.Filter
@@ -35,12 +37,16 @@ namespace Inventory.Product.API.Services
             if (!string.IsNullOrEmpty(query.SearchTerm)) filterSearchTerm = Builders<InventoryEntry>
                      .Filter.Eq(x => x.DocumentNo, query.SearchTerm);
             var andFilter = filterItemNo & filterSearchTerm;
-            var pageList = await Collection.Find(andFilter).Skip((query.PageIndex - 1)*query.PageSize)
-                .Limit(query.PageSize)
-                .ToListAsync();
-            var result = _mapper.Map<IEnumerable<InventoryEntryDto>> (pageList);
-            return result;
+            //var pageList = await Collection.Find(andFilter).Skip((query.PageIndex - 1)*query.PageSize)
+            //    .Limit(query.PageSize)
+            //    .ToListAsync();
+            var pageList = await Collection.PaginatedListAsync(andFilter, pageIndex:query.PageIndex,
+                pageSize:query.PageSize);
+            var items= _mapper.Map<IEnumerable<InventoryEntryDto>>(pageList);
+            var result = new PagedList<InventoryEntryDto>(items,pageList.GetMetaData().TotalItems
+                ,pageIndex:query.PageIndex,pageSize:query.PageSize);
 
+            return result;
         }
 
         public async Task<InventoryEntryDto> GetByIdAsync(string id)
@@ -56,7 +62,7 @@ namespace Inventory.Product.API.Services
         {
             var entity = new InventoryEntry(ObjectId.GenerateNewId().ToString())
             {
-                ItemNo=model.ItemNo,
+                ItemNo=itemNo,
                 Quantity=model.Quantity,
                 DocumentType=model.DocumentType
             };

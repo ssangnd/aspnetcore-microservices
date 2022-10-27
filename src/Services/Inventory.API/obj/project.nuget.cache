@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s9ijrIL6A2pjuROY+Eo5y4hzpvCZDUoQxxzr4nyMuKMXdQvuN61im/vvXeUsik7WLVfGvASlySJ3BfcW2DdSWQ==",
+  "dgSpecHash": "nEnxY9LKaz17yMz2+szTJlLhiwg9J5Nu4/t4e6Tl9EfMyWZMksUWUULLwNVE2QOCp8ofLaLRm+8VoFnJxMQPfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\sangn\\OneDrive\\Máy tính\\aspnetcore-microservices\\src\\Services\\Inventory.API\\Inventory.Product.API.csproj",
   "expectedPackageFiles": [

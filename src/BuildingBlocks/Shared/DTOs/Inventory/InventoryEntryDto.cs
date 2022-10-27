@@ -15,7 +15,7 @@ namespace Shared.DTOs.Inventory
 
         public string ItemNo { get; set; }
         public  int Quantity { get; set; }
-        public string ExternalDocument { get; set; }
+        public string ExternalDocumentNo { get; set; }
 
     }
 }

@@ -37,6 +37,6 @@ namespace Shared.SeedWork
             }
         }
 
-        public string OrderBy { get; set; }
+        //public string OrderBy { get; set; }
     }
 }

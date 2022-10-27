@@ -914,6 +914,7 @@
           "Common.Logging": "1.0.0",
           "Contracts": "1.0.0",
           "MailKit": "3.4.1",
+          "MongoDB.Driver": "2.17.1",
           "Newtonsoft.Json": "13.0.1",
           "Shared": "1.0.0"
         },
@@ -2431,7 +2432,6 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Common.Logging >= 1.0.0",
       "Infrastructure >= 1.0.0",
-      "MongoDB.Driver >= 2.17.1",
       "Serilog.AspNetCore >= 5.0.0",
       "Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -2493,10 +2493,6 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[11.0.0, )"
-          },
-          "MongoDB.Driver": {
-            "target": "Package",
-            "version": "[2.17.1, )"
           },
           "Serilog.AspNetCore": {
             "target": "Package",

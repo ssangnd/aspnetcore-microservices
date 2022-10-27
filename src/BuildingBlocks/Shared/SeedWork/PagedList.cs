@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.SeedWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Shared.DTOs.Configurations
                 TotalItems = totalItems,
                 PageSize = pageSize,
                 CurrentPage = pageNumber,
-                TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize)
+               // TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize)
             };
             AddRange(items);
         }

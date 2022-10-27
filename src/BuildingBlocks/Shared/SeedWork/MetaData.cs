@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DTOs.Configurations
+namespace Shared.SeedWork
 {
     public class MetaData
     {
         public int CurrentPage { get; set; }
 
-        public int TotalPages { get; set; }
+        //public int TotalPages { get; set; }
+        public int TotalPages => (int)Math.Ceiling(TotalItems / (double)PageSize);
 
         public int PageSize { get; set; }
 
